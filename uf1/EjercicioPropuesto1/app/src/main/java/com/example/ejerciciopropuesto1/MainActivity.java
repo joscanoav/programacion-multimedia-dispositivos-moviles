@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     protected String contenidocaja1;
 
+    protected ImageView ima1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         texto2 = findViewById(R.id.texto2_main);
         boton1 = findViewById(R.id.boton1_main);
         caja1 = findViewById(R.id.caja1_main);
+        ima1 = (ImageView) findViewById(R.id.ima1_main);
+
 
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,13 +49,18 @@ public class MainActivity extends AppCompatActivity {
                 contenidocaja1 = caja1.getText().toString().trim(); // Eliminamos espacios en blanco
 
                 if (contenidocaja1.equals("")) {
-                    texto2.setText("Debe rellenar el valor");
+                    texto2.setText("Debe rellenar la caja de texto");
                     Toast.makeText(MainActivity.this, "Debe rellenar la caja de texto", Toast.LENGTH_SHORT).show();
                 } else {
                     if (contenidocaja1.equalsIgnoreCase("blanco")) {
                         texto2.setText("Correcto");
+                        ima1.setImageResource(R.drawable.correcto);
+                        boton1.setEnabled(false);
+
                     } else {
                         texto2.setText("Error");
+                        ima1.setImageResource(R.drawable.error);
+
                     }
                 }
             }
