@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,16 +23,16 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    protected CheckBox check1;
     protected TextView texto1;
     protected EditText caja1;
     protected Button boton1;
     protected ListView lista1;
 
     protected ArrayList<String> listaCompra = new ArrayList<String>();
-    protected ArrayAdapter<String> adaptador ;
+    protected ArrayAdapter<String> adaptador;
 
-    protected String contenidoCaja1="";
-
+    protected String contenidoCaja1 = "";
 
 
     @Override
@@ -44,16 +45,32 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        
+
         texto1 = (TextView) findViewById(R.id.text1_main);
-        caja1= (EditText) findViewById(R.id.caja1_main);
-        boton1=(Button) findViewById(R.id.boton1_main);
-        lista1 =(ListView) findViewById(R.id.lista1_main);
+        caja1 = (EditText) findViewById(R.id.caja1_main);
+        boton1 = (Button) findViewById(R.id.boton1_main);
+        lista1 = (ListView) findViewById(R.id.lista1_main);
+        check1 = (CheckBox) findViewById(R.id.check1_main);
+
+        check1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(check1.isChecked())
+                {
+                    boton1.setEnabled(false);
+                }
+                else
+                {
+                boton1.setEnabled(true);
+                }
+
+            }
+        });
 
 
         //listaCompra.add("Manzanas");
 
-        adaptador = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1,listaCompra);
+        adaptador = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, listaCompra);
         lista1.setAdapter(adaptador);
 
         lista1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -85,24 +102,19 @@ public class MainActivity extends AppCompatActivity {
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                contenidoCaja1=caja1.getText().toString();
-                if (contenidoCaja1.equalsIgnoreCase(""))
-                    {
-                        Toast.makeText(MainActivity.this, "Debe rellenar la caja de texto", Toast.LENGTH_SHORT).show();
-                    }
-                    else
+                contenidoCaja1 = caja1.getText().toString();
+                if (contenidoCaja1.equalsIgnoreCase("")) {
+                    Toast.makeText(MainActivity.this, "Debe rellenar la caja de texto", Toast.LENGTH_SHORT).show();
+                } else {
+                    listaCompra.add(contenidoCaja1);
+                    caja1.setText("");
+                    adaptador.notifyDataSetChanged();
 
-                    {
-                        listaCompra.add(contenidoCaja1);
-                        caja1.setText("");
-                        adaptador.notifyDataSetChanged();
-
-                    }
                 }
+            }
 
         });
-        
-        
-        
+
+
     }
 }
