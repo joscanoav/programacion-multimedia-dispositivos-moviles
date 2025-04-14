@@ -1,5 +1,6 @@
 package com.example.jugadoresbaloncestodospantallas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +22,8 @@ public class SegundaActividad extends AppCompatActivity {
     protected ImageView ima1;
     
     protected TextView text1;
+    protected Intent pasarPantalla;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +35,13 @@ public class SegundaActividad extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        
+
         getOnBackPressedDispatcher().addCallback(SegundaActividad.this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                Toast.makeText(SegundaActividad.this, "Pulsado boton atras", Toast.LENGTH_SHORT).show();
+                pasarPantalla = new Intent(SegundaActividad.this,MainActivity.class);
+                startActivity(pasarPantalla);
+
             }
         });
         
