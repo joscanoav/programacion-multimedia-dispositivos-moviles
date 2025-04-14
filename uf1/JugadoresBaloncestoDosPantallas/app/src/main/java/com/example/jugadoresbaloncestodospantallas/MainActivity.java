@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     protected Intent pasarPantalla;
 
+    protected String contenidoCaja1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,11 +43,18 @@ public class MainActivity extends AppCompatActivity {
         imaBoton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "voy a la siguiente actividad", Toast.LENGTH_SHORT).show();
+                contenidoCaja1= caja1.getText().toString();
+                if (contenidoCaja1.equalsIgnoreCase(""))
+                {
+                    Toast.makeText(MainActivity.this,"Debe rellenar la caja",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    pasarPantalla= new Intent(MainActivity.this, SegundaActividad.class);
+                    pasarPantalla.putExtra("JUGADOR",contenidoCaja1);
+                    finish();
+                    startActivity(pasarPantalla);
+                }
 
-                pasarPantalla= new Intent(MainActivity.this, SegundaActividad.class);
-                finish();
-                startActivity(pasarPantalla);
 
             }
         });
