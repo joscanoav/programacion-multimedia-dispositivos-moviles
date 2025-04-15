@@ -10,10 +10,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
 
     protected ImageView ima1;
     protected Intent pasarpantalla;
+
+    protected TimerTask tt;
+
+    protected Timer t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +35,16 @@ public class MainActivity extends AppCompatActivity {
 
         ima1= (ImageView) findViewById(R.id.ima1_main);
 
-        pasarpantalla = new Intent(MainActivity.this,SegundaActividad.class);
-        startActivity(pasarpantalla);
+
+
+        tt= new TimerTask() {
+            @Override
+            public void run() {
+                pasarpantalla = new Intent(MainActivity.this,SegundaActividad.class);
+                startActivity(pasarpantalla);
+            }
+        };
+        t= new Timer();
+        t.schedule(tt,3000);
     }
 }
