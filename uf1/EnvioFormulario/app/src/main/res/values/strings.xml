@@ -5,6 +5,12 @@
     <string name="string_caja2_main">Escribe tus apellidos</string>
     <string name="string_caja3_main">Escribe tu edad</string>
     <string name="string_boton1_main">Enviar Formulario</string>
-    <string name="texto1_recepcion">Resumen informacion del usuario</string>
+    <string name="string_texto1_recepcion">Resumen informacion del usuario</string>
+    <string name="string_codigo_deberellenar">Debe rellenar todas la cajas de texto</string>
+    <string name="string_codigo_nombre">Nombre:</string>
+    <string name="string_codigo_apellido">Apellidos:</string>
+    <string name="string_codigo_edad">Edad:</string>
+
+
 </resources>
 

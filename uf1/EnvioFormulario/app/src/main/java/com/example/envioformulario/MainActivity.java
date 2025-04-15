@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (contenidoCaja1.equalsIgnoreCase("")|| contenidoCaja2.equalsIgnoreCase("")|| contenidoCaja3.equalsIgnoreCase(""))
                 {
-                    Toast.makeText(MainActivity.this, "Debe rellenar todas la cajas de texto", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,getString(R.string.string_codigo_deberellenar), Toast.LENGTH_SHORT).show();
                 }
                 else
                 {

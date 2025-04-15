@@ -47,9 +47,9 @@ public class RecepcionDatosActivity extends AppCompatActivity {
             paquete2=extras.getString("APELLIDO");
             paquete3=extras.getString("EDAD");
 
-            texto2.setText("Nombre: " + paquete1);
-            texto3.setText("Apellidos: " + paquete2);
-            texto4.setText("Edad: " + paquete3);
+            texto2.setText(getString(R.string.string_codigo_nombre)+ paquete1);
+            texto3.setText(getString(R.string.string_codigo_apellido) + paquete2);
+            texto4.setText(getString(R.string.string_codigo_edad)+ paquete3);
 
         }
         else
