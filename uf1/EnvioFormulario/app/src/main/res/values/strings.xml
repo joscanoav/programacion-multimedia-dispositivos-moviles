@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">EnvioFormulario</string>
+    <string name="string_texto1_main">Formulario de usuario</string>
+    <string name="string_caja1_main">Escribe tu nombre</string>
+    <string name="string_caja2_main">Escribe tus apellidos</string>
+    <string name="string_caja3_main">Escribe tu edad</string>
+    <string name="string_boton1_main">Enviar Formulario</string>
+    <string name="texto1_recepcion">Resumen informacion del usuario</string>
 </resources>
+
