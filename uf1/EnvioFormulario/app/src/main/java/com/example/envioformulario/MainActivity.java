@@ -1,10 +1,13 @@
 package com.example.envioformulario;
 
+import android.content.Intent;
+import android.content.IntentSender;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     protected String contenidoCaja1="";
     protected String contenidoCaja2="";
     protected String contenidoCaja3="";
+
+    protected Intent pasarPantalla;
+
 
 
 
@@ -53,6 +59,22 @@ public class MainActivity extends AppCompatActivity {
                 contenidoCaja1 = caja1.getText().toString();
                 contenidoCaja2 = caja2.getText().toString();
                 contenidoCaja3 = caja3.getText().toString();
+
+                if (contenidoCaja1.equalsIgnoreCase("")|| contenidoCaja2.equalsIgnoreCase("")|| contenidoCaja3.equalsIgnoreCase(""))
+                {
+                    Toast.makeText(MainActivity.this, "Debe rellenar todas la cajas de texto", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    //Enviamos el formulario a la siguiente actividad
+                    pasarPantalla = new Intent(MainActivity.this, RecepcionDatosActivity.class);
+                    pasarPantalla.putExtra("NOMBRE", contenidoCaja1);
+                    pasarPantalla.putExtra("APELLIDO", contenidoCaja2);
+                    pasarPantalla.putExtra("EDAD", contenidoCaja3);
+
+                    startActivity(pasarPantalla);
+
+                }
             }
         });
 

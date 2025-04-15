@@ -18,7 +18,11 @@ public class RecepcionDatosActivity extends AppCompatActivity {
 
     protected TextView texto4;
 
+    protected String paquete1 ="";
+    protected String paquete2 ="";
+    protected String paquete3 ="";
 
+    protected Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +39,23 @@ public class RecepcionDatosActivity extends AppCompatActivity {
         texto2=(TextView) findViewById(R.id.texto2_recepcion);
         texto3=(TextView) findViewById(R.id.texto3_recepcion);
         texto4=(TextView) findViewById(R.id.texto4_recepcion);
+
+        extras = getIntent().getExtras(); // Recojo los paquetes recibidos
+        if (extras!=null) // AL menos ha recibido un paquete
+        {
+            paquete1=extras.getString("NOMBRE");
+            paquete2=extras.getString("APELLIDO");
+            paquete3=extras.getString("EDAD");
+
+            texto2.setText("Nombre: " + paquete1);
+            texto3.setText("Apellidos: " + paquete2);
+            texto4.setText("Edad: " + paquete3);
+
+        }
+        else
+        {
+            // No ha recibido ningun paquete
+        }
+
     }
 }
