@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FormSubmission</string>
+    <string name="string_texto1_main">User Form</string>
+    <string name="string_caja1_main">Enter your first name</string>
+    <string name="string_caja2_main">Enter your last name</string>
+    <string name="string_caja3_main">Enter your age</string>
+    <string name="string_boton1_main">Submit Form</string>
+    <string name="string_texto1_recepcion">User Information Summary</string>
+    <string name="string_codigo_deberellenar">All text fields must be filled</string>
+    <string name="string_codigo_nombre">First Name:</string>
+    <string name="string_codigo_apellido">Last Name:</string>
+    <string name="string_codigo_edad">Age:</string>
+</resources>
+

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">EnvoiFormulaire</string>
+    <string name="string_texto1_main">Formulaire utilisateur</string>
+    <string name="string_caja1_main">Entrez votre prénom</string>
+    <string name="string_caja2_main">Entrez votre nom de famille</string>
+    <string name="string_caja3_main">Entrez votre âge</string>
+    <string name="string_boton1_main">Envoyer le formulaire</string>
+    <string name="string_texto1_recepcion">Résumé des informations utilisateur</string>
+    <string name="string_codigo_deberellenar">Tous les champs doivent être remplis</string>
+    <string name="string_codigo_nombre">Prénom :</string>
+    <string name="string_codigo_apellido">Nom de famille :</string>
+    <string name="string_codigo_edad">Âge :</string>
+</resources>
+
+
