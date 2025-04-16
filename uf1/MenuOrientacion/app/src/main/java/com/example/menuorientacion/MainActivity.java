@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+
         ima1 = (ImageView) findViewById(R.id.ima1_main);
         texto1 = (TextView) findViewById(R.id.texto1_main);
 
@@ -65,6 +66,16 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         }
+
+        else if (id==R.id.menu_item_segunda)
+        {
+            Toast.makeText(this, "He pulsado reiniciar", Toast.LENGTH_SHORT).show();
+            pasarpantalla = new Intent(MainActivity.this, SegundaActividad.class);
+            startActivity(pasarpantalla);
+
+            return true;
+        }
+
         else
         {
             return super.onOptionsItemSelected(item);

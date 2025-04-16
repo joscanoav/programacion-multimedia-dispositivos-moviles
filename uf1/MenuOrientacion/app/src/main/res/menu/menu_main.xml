@@ -10,4 +10,7 @@
         android:icon="@android:drawable/ic_menu_revert"
         android:title="Reiniciar"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_item_segunda"
+        android:title="Ir a segunda" />
 </menu>
