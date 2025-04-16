@@ -8,7 +8,7 @@
     tools:context=".EdadActivity">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/texto1_edad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Paso 3/4"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/texto2_edad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -28,6 +28,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
+        android:id="@+id/lista1_edad"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -37,5 +38,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/texto2_edad" />
 </androidx.constraintlayout.widget.ConstraintLayout>
