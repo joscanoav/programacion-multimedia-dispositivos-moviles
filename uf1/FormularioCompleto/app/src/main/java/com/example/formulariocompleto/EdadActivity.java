@@ -1,6 +1,7 @@
 package com.example.formulariocompleto;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -10,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
 
 public class EdadActivity extends AppCompatActivity {
 
@@ -23,6 +26,12 @@ public class EdadActivity extends AppCompatActivity {
     protected String paquete3="";
 
     protected Bundle extras;
+
+    protected ArrayList<String> numeros= new ArrayList<String>();
+
+    protected ArrayAdapter<String> adaptador;
+
+    protected int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,5 +62,14 @@ public class EdadActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "No he recibido ningun paquete", Toast.LENGTH_SHORT).show();
         }
+
+        i=0;
+        for (i=0; i<=150; i++)
+        {
+            numeros.add(""+i);
+        }
+
+        adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,numeros);
+        lista1.setAdapter(adaptador);
     }
 }
