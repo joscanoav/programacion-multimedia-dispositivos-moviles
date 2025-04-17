@@ -1,6 +1,9 @@
 package com.example.formulariocompleto;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -32,6 +35,11 @@ public class EdadActivity extends AppCompatActivity {
     protected ArrayAdapter<String> adaptador;
 
     protected int i;
+
+    protected String contenidoItem="";
+
+    protected Intent pasarPantalla;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,5 +79,23 @@ public class EdadActivity extends AppCompatActivity {
 
         adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,numeros);
         lista1.setAdapter(adaptador);
+
+        lista1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                contenidoItem= parent.getItemAtPosition(position).toString();
+                pasarPantalla = new Intent(EdadActivity.this,ResumenActivity.class);
+
+
+                pasarPantalla.putExtra("NOMBRE",paquete1);
+                pasarPantalla.putExtra("APELLIDOS",paquete2);
+                pasarPantalla.putExtra("GENERO",paquete3);
+                pasarPantalla.putExtra("EDAD",contenidoItem);
+
+
+                startActivity(pasarPantalla);
+            }
+        });
     }
 }
