@@ -57,13 +57,12 @@ public class GeneroActivity extends AppCompatActivity {
                     pasarPantalla = new Intent(GeneroActivity.this,EdadActivity.class);
                     // Crear un paquete para hombre
 
-                    pasarPantalla.putExtra("GENERO","hombre")
+                    pasarPantalla.putExtra("GENERO","hombre");
 
                     // Reenviar tambien paquete 1 y paquete 2
 
                     pasarPantalla.putExtra("NOMBRE",paquete1);
                     pasarPantalla.putExtra("APELLIDOS",paquete2);
-
 
                     startActivity(pasarPantalla);
 
@@ -76,12 +75,15 @@ public class GeneroActivity extends AppCompatActivity {
                     pasarPantalla = new Intent(GeneroActivity.this,EdadActivity.class);
                     // Crear un paquete para mujer
 
-                    pasarPantalla.putExtra("GENERO","mujer")
+                    pasarPantalla.putExtra("GENERO","mujer");
 
                     // Reenviar tambien paquete 1 y paquete 2
 
                     pasarPantalla.putExtra("NOMBRE",paquete1);
                     pasarPantalla.putExtra("APELLIDOS",paquete2);
+
+                    startActivity(pasarPantalla);
+
 
 
 

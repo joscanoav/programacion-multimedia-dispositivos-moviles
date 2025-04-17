@@ -3,6 +3,7 @@ package com.example.formulariocompleto;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,12 @@ public class EdadActivity extends AppCompatActivity {
     protected TextView texto2;
 
     protected ListView lista1;
+
+    protected String paquete1="";
+    protected String paquete2="";
+    protected String paquete3="";
+
+    protected Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +38,20 @@ public class EdadActivity extends AppCompatActivity {
         texto1=(TextView) findViewById(R.id.texto1_edad);
         texto2=(TextView) findViewById(R.id.texto2_edad);
         lista1=(ListView) findViewById(R.id.lista1_edad);
+
+        extras= getIntent().getExtras();
+        if(extras!=null)
+        {
+            paquete1= extras.getString("NOMBRE");
+            paquete2= extras.getString("APELLIDOS");
+            paquete3= extras.getString("GENERO");
+
+            Toast.makeText(this, paquete1 + " -" + paquete2 + " -" + paquete3, Toast.LENGTH_SHORT).show();
+
+        }
+        else
+        {
+            Toast.makeText(this, "No he recibido ningun paquete", Toast.LENGTH_SHORT).show();
+        }
     }
 }
