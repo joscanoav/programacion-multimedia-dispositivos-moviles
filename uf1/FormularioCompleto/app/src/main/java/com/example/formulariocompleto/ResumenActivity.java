@@ -3,6 +3,7 @@ package com.example.formulariocompleto;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,14 @@ public class ResumenActivity extends AppCompatActivity {
     protected TextView texto5;
 
     protected ImageView ima1;
+
+    protected String paquete1="";
+    protected String paquete2="";
+    protected String paquete3="";
+    protected String paquete4="";
+
+    protected Bundle extras;
+
 
 
     @Override
@@ -37,5 +46,34 @@ public class ResumenActivity extends AppCompatActivity {
         texto4=(TextView) findViewById(R.id.texto4_resumen);
         texto5=(TextView) findViewById(R.id.texto5_resumen);
         ima1=(ImageView) findViewById(R.id.ima1_resumen);
+
+        extras= getIntent().getExtras();
+        if (extras!=null)
+        {
+            paquete1= extras.getString("NOMBRE");
+            paquete2= extras.getString("APELLIDOS");
+            paquete3= extras.getString("GENERO");
+            paquete4= extras.getString("EDAD");
+
+            texto3.setText("Nombre: " + paquete1);
+            texto4.setText("Apellidos: " + paquete2);
+            texto5.setText("Edad: " + paquete4);
+
+            if (paquete3.equalsIgnoreCase("mujer"))
+            {
+                ima1.setImageResource(R.drawable.woman);
+            }
+            else
+            {
+                ima1.setImageResource(R.drawable.man);
+            }
+
+            Toast.makeText(this, paquete1 + " - " + paquete2 + " - " + paquete3 + " - " + paquete4, Toast.LENGTH_SHORT).show();
+
+        }
+        else
+        {
+            Toast.makeText(this, "No he recibido ningun paquete", Toast.LENGTH_SHORT).show();
+        }
     }
 }
