@@ -2,6 +2,9 @@ package com.example.formulariocompleto;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -19,8 +22,8 @@ public class GeneroActivity extends AppCompatActivity {
     protected ImageButton imaboton1;
     protected ImageButton imaboton2;
 
-    protected String paquete1="";
-    protected String paquete2="";
+    protected String paquete1 = "";
+    protected String paquete2 = "";
 
     protected Bundle extras;
 
@@ -38,12 +41,12 @@ public class GeneroActivity extends AppCompatActivity {
             return insets;
         });
 
-        texto1=(TextView) findViewById(R.id.texto1_genero);
-        imaboton1=(ImageButton) findViewById(R.id.imaboton1_genero);
-        imaboton2=(ImageButton) findViewById(R.id.imaboton2_genero);
+        texto1 = (TextView) findViewById(R.id.texto1_genero);
+        imaboton1 = (ImageButton) findViewById(R.id.imaboton1_genero);
+        imaboton2 = (ImageButton) findViewById(R.id.imaboton2_genero);
 
-        extras=getIntent().getExtras();
-        if (extras!=null) // no ha llegado algun paquete
+        extras = getIntent().getExtras();
+        if (extras != null) // no ha llegado algun paquete
         {
             paquete1 = extras.getString("NOMBRE");
             paquete2 = extras.getString("APELLIDOS");
@@ -87,12 +90,39 @@ public class GeneroActivity extends AppCompatActivity {
 
                 }
             });
+        } else {
+            Toast.makeText(this, getString(R.string.String_toast_genero), Toast.LENGTH_SHORT).show();
         }
-                    else
-            {
-                Toast.makeText(this, getString(R.string.String_toast_genero), Toast.LENGTH_SHORT).show();
-            }
 
 
-        }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_genero, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection.
+
+        int id = item.getItemId();
+        if (id == R.id.item_genero_inicio) {
+
+            pasarPantalla = new Intent(GeneroActivity.this, InformacionActivity.class);
+            startActivity(pasarPantalla);
+            return true;
+
+        }
+        else
+        {
+            return super.onOptionsItemSelected(item);
+        }
+
+
+    }
+
+}
+
