@@ -5,8 +5,23 @@
     <string name="String_caja1_info">Escribe tu nombre</string>
     <string name="String_caja2_info">Escribe tus apellidos</string>
     <string name="String_texto1_genero">Paso 2/4</string>
+    <string name="String_boton1_info">Paso siguiente</string>
+
+
     <string name="String_texto1_edad">Paso 3/4</string>
-    <string name="String_texto2_edad">Seleccion de edad</string>
+    <string name="String_texto2_edad">Seleccione su edad</string>
+
+    <string name="String_texto1_resumen">Paso 4/4</string>
+    <string name="String_texto2_resumen">Resumen</string>
+    <string name="String_texto3_resumen">Nombre</string>
+    <string name="String_texto4_resumen">Apellidos</string>
+    <string name="String_texto5_resumen">Edad</string>
+
+    <string name="String_toast_info">Debe rellenar los campos de texto:</string>
+    <string name="String_toast_genero">No he recibido ningun paquete:</string>
+
+
+
 
 
 </resources>
