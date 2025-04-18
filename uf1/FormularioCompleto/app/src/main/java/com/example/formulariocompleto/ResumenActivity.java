@@ -55,9 +55,9 @@ public class ResumenActivity extends AppCompatActivity {
             paquete3= extras.getString("GENERO");
             paquete4= extras.getString("EDAD");
 
-            texto3.setText("Nombre: " + paquete1);
-            texto4.setText("Apellidos: " + paquete2);
-            texto5.setText("Edad: " + paquete4);
+            texto3.setText(getString(R.string.String_texto3_resumen) + paquete1);
+            texto4.setText(getString(R.string.String_texto4_resumen) + paquete2);
+            texto5.setText(getString(R.string.String_texto5_resumen) + paquete4);
 
             if (paquete3.equalsIgnoreCase("mujer"))
             {
@@ -73,7 +73,7 @@ public class ResumenActivity extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(this, "No he recibido ningun paquete", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.String_toast_genero), Toast.LENGTH_SHORT).show();
         }
     }
 }

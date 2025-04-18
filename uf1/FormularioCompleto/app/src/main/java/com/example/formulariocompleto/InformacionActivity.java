@@ -67,7 +67,7 @@ public class InformacionActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(InformacionActivity.this, "Debe rellenar los campos de texto", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InformacionActivity.this, getString(R.string.String_toast_info), Toast.LENGTH_SHORT).show();
                 }
                 
             }

@@ -68,7 +68,7 @@ public class EdadActivity extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(this, "No he recibido ningun paquete", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getString(R.string.String_toast_genero), Toast.LENGTH_SHORT).show();
         }
 
         i=0;

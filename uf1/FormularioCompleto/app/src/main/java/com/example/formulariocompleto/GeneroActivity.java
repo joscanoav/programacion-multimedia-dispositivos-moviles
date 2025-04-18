@@ -45,24 +45,24 @@ public class GeneroActivity extends AppCompatActivity {
         extras=getIntent().getExtras();
         if (extras!=null) // no ha llegado algun paquete
         {
-            paquete1=extras.getString("NOMBRE");
-            paquete2=extras.getString("APELLIDOS");
+            paquete1 = extras.getString("NOMBRE");
+            paquete2 = extras.getString("APELLIDOS");
 
-            Toast.makeText(this, paquete1 +"- "+paquete2, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, paquete1 + "- " + paquete2, Toast.LENGTH_SHORT).show();
 
             imaboton1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    pasarPantalla = new Intent(GeneroActivity.this,EdadActivity.class);
+                    pasarPantalla = new Intent(GeneroActivity.this, EdadActivity.class);
                     // Crear un paquete para hombre
 
-                    pasarPantalla.putExtra("GENERO","hombre");
+                    pasarPantalla.putExtra("GENERO", "hombre");
 
                     // Reenviar tambien paquete 1 y paquete 2
 
-                    pasarPantalla.putExtra("NOMBRE",paquete1);
-                    pasarPantalla.putExtra("APELLIDOS",paquete2);
+                    pasarPantalla.putExtra("NOMBRE", paquete1);
+                    pasarPantalla.putExtra("APELLIDOS", paquete2);
 
                     startActivity(pasarPantalla);
 
@@ -72,25 +72,27 @@ public class GeneroActivity extends AppCompatActivity {
             imaboton2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    pasarPantalla = new Intent(GeneroActivity.this,EdadActivity.class);
+                    pasarPantalla = new Intent(GeneroActivity.this, EdadActivity.class);
                     // Crear un paquete para mujer
 
-                    pasarPantalla.putExtra("GENERO","mujer");
+                    pasarPantalla.putExtra("GENERO", "mujer");
 
                     // Reenviar tambien paquete 1 y paquete 2
 
-                    pasarPantalla.putExtra("NOMBRE",paquete1);
-                    pasarPantalla.putExtra("APELLIDOS",paquete2);
+                    pasarPantalla.putExtra("NOMBRE", paquete1);
+                    pasarPantalla.putExtra("APELLIDOS", paquete2);
 
                     startActivity(pasarPantalla);
 
 
-
-
                 }
             });
+        }
+                    else
+            {
+                Toast.makeText(this, getString(R.string.String_toast_genero), Toast.LENGTH_SHORT).show();
+            }
 
 
         }
     }
-}

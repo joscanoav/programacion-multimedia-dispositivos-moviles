@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CompleteForm</string>
+    <string name="String_texto1_info">Step 1/4</string>
+    <string name="String_texto2_info">User Information</string>
+    <string name="String_caja1_info">Enter your first name</string>
+    <string name="String_caja2_info">Enter your last name</string>
+    <string name="String_texto1_genero">Step 2/4</string>
+    <string name="String_boton1_info">Next step</string>
+
+    <string name="String_texto1_edad">Step 3/4</string>
+    <string name="String_texto2_edad">Select your age</string>
+
+    <string name="String_texto1_resumen">Step 4/4</string>
+    <string name="String_texto2_resumen">Summary</string>
+    <string name="String_texto3_resumen">First name:</string>
+    <string name="String_texto4_resumen">Last name:</string>
+    <string name="String_texto5_resumen">Age:</string>
+
+    <string name="String_toast_info">You must fill in the text fields:</string>
+    <string name="String_toast_genero">No data received:</string>
+</resources>

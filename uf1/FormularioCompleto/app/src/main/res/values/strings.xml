@@ -13,9 +13,9 @@
 
     <string name="String_texto1_resumen">Paso 4/4</string>
     <string name="String_texto2_resumen">Resumen</string>
-    <string name="String_texto3_resumen">Nombre</string>
-    <string name="String_texto4_resumen">Apellidos</string>
-    <string name="String_texto5_resumen">Edad</string>
+    <string name="String_texto3_resumen">Nombre:</string>
+    <string name="String_texto4_resumen">Apellidos:</string>
+    <string name="String_texto5_resumen">Edad:</string>
 
     <string name="String_toast_info">Debe rellenar los campos de texto:</string>
     <string name="String_toast_genero">No he recibido ningun paquete:</string>
