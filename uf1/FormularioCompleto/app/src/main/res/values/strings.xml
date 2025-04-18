@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">FormularioCompleto</string>
+    <string name="String_texto1_info">Paso 1/4</string>
+    <string name="String_texto2_info">Informacion Usuario</string>
+    <string name="String_caja1_info">Escribe tu nombre</string>
+    <string name="String_caja2_info">Escribe tus apellidos</string>
+    <string name="String_texto1_genero">Paso 2/4</string>
+    <string name="String_texto1_edad">Paso 3/4</string>
+    <string name="String_texto2_edad">Seleccion de edad</string>
+
+
 </resources>
