@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     protected TextView texto1;
     protected EditText caja1;
+    protected EditText caja2;
+    protected EditText caja3;
     protected Button boton1;
     protected ListView lista1;
 
@@ -45,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
         texto1 = (TextView) findViewById(R.id.texto1_main);
         caja1=(EditText) findViewById(R.id.caja1_main);
+        caja2=(EditText) findViewById(R.id.caja2_main);
+        caja3=(EditText) findViewById(R.id.caja3_main);
+
         boton1=(Button) findViewById(R.id.boton1_main);
         lista1=(ListView) findViewById(R.id.lista1_main);
 

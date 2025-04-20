@@ -20,9 +20,9 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE productos (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, precio FLOAT, cantidad INTEGER)");
-        db.execSQL("INSERT INTO products VALUES (null, 'producto ejemplo 1',30,5)");
-        db.execSQL("INSERT INTO products VALUES (null, 'producto ejemplo 2',15,8)");
-        db.execSQL("INSERT INTO products VALUES (null, 'producto ejemplo 3',10,6)");
+        db.execSQL("INSERT INTO productos VALUES (null, 'producto ejemplo 1',30,5)");
+        db.execSQL("INSERT INTO productos VALUES (null, 'producto ejemplo 2',15,8)");
+        db.execSQL("INSERT INTO productos VALUES (null, 'producto ejemplo 3',10,6)");
 
     }
 
@@ -37,7 +37,7 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
             if (cur!=null)
             {
                 cur.moveToFirst();
-                while (cur.isAfterLast())
+                while (!cur.isAfterLast())
                 {
                     //codigo para obtener la informacion
                     productos.add(cur.getString(0)+",-" + cur.getString(1)+ "(" + cur.getString(2)+" euros)("+ cur.getString(3)+ " u)");
