@@ -15,16 +15,26 @@ public class MainActivity extends AppCompatActivity {
     protected TextView texto1;
     protected Button boton1;
 
+    protected GestorBD gbd;
+
+    public void getMensaje()
+    {
+        String mensaje = gbd.getMensajeAleatorio();
+        texto1.setText(mensaje);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.texto1_main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        gbd=new GestorBD(this);
 
         texto1=(TextView) findViewById(R.id.texto1_main);
         boton1=(Button) findViewById(R.id.boton1_main);
@@ -32,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getMensaje();
 
             }
         });

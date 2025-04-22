@@ -1,14 +1,18 @@
 package com.example.mensajesdeanimo;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class GestorBD extends SQLiteOpenHelper {
     public GestorBD(@Nullable Context context) {
-        super(context, "mensaje de animo", null, 1);
+        super(context, "mensajesdeanimo", null, 1);
     }
 
     @Override
@@ -29,6 +33,29 @@ public class GestorBD extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public String getMensajeAleatorio() {
+        int pos = 0;
+        Random rand = new Random();
+        String salida = "";
+        ArrayList<String> mensajes = new ArrayList<String>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery("SELECT * FROM mensajes", null);
+
+        if (cur != null) {
+            cur.moveToFirst();
+            while (!cur.isAfterLast()) {
+                mensajes.add(cur.getString(1));
+                cur.moveToNext();
+            }
+        }
+
+        pos = rand.nextInt(mensajes.size());
+        salida = mensajes.get(pos);
+        return salida;
+    }
+
+
 
 
 }
