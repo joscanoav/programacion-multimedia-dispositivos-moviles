@@ -1,5 +1,6 @@
 package com.example.listadelacompra;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -71,9 +73,24 @@ public class MainActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
                 contenidoItem = parent.getItemAtPosition(position).toString();
-                Toast.makeText(MainActivity.this, "Contenido Item: " + contenidoItem, Toast.LENGTH_SHORT).show();
+
                 partes=contenidoItem.split(".-");
-                Toast.makeText(MainActivity.this, "Partes: " + partes[0]+ " - " + partes[1], Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("¿Desea eliminar el producto?" + partes[1])
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Toast.makeText(MainActivity.this, "Partes: " + partes[0], Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancels the dialog.
+                            }
+                        });
+                // Create the AlertDialog object and return it.
+                builder.create();
+                builder.show();
 
                 return true;
             }
