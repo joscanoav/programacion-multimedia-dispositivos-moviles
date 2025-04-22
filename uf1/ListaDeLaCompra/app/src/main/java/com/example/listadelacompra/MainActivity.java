@@ -80,7 +80,20 @@ public class MainActivity extends AppCompatActivity {
                 builder.setMessage("¿Desea eliminar el producto?" + partes[1])
                         .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Toast.makeText(MainActivity.this, "Partes: " + partes[0], Toast.LENGTH_SHORT).show();
+                                
+                                if (gbd.borrarProducto(partes[0]))
+                                {
+                                    Toast.makeText(MainActivity.this, "Producto borrado correctamente", Toast.LENGTH_SHORT).show();
+                                    adaptador.clear();
+                                    listaProductos = gbd.obtenerProducto();
+                                    adaptador.addAll(listaProductos);
+                                    adaptador.notifyDataSetChanged();
+                                }
+                                else
+                                {
+                                    Toast.makeText(MainActivity.this, "El producto no se ha podido borrar", Toast.LENGTH_SHORT).show();    
+                                }
+
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
