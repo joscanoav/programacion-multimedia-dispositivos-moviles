@@ -25,6 +25,10 @@ public class ActualizarProductoActivity extends AppCompatActivity {
     protected String paquete1="";
     protected Bundle extras;
 
+    protected GestorBaseDatos gbd;
+
+    protected Producto pro;
+
 
 
 
@@ -46,11 +50,17 @@ public class ActualizarProductoActivity extends AppCompatActivity {
         boton1=(Button) findViewById(R.id.boton1_actu);
         boton2=(Button) findViewById(R.id.boton2_actu);
 
+        gbd=new GestorBaseDatos(this);
+
         extras= getIntent().getExtras();
         if (extras!=null)
         {
             paquete1=extras.getString("ID");
             Toast.makeText(this, "REcibdo paquete: " + paquete1, Toast.LENGTH_SHORT).show();
+            pro=gbd.obtenerProducto(paquete1);
+            caja1.setText(pro.getNombre());
+            caja2.setText(""+pro.getPrecio());
+            caja3.setText(""+pro.getCantidad());
         }
         else
         {

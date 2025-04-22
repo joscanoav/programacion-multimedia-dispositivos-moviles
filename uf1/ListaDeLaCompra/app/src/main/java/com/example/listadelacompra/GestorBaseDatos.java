@@ -88,10 +88,10 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
 
         }
 
-    public boolean existeProducto(String nombre)
+    public boolean existeProducto(String id)
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cur = db.rawQuery("SELECT * FROM productos WHERE nombre= '"+nombre+"'", null);
+        Cursor cur = db.rawQuery("SELECT * FROM productos WHERE id= '"+id, null);
         if (cur!=null)
         {
             cur.moveToLast();
@@ -104,10 +104,10 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
 
     }
 
-    public boolean existeIdProducto(String nombre)
+    public boolean existeIdProducto(String id)
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cur = db.rawQuery("SELECT * FROM productos WHERE nombre= '"+nombre+"'", null);
+        Cursor cur = db.rawQuery("SELECT * FROM productos WHERE id="+id,null);
         if (cur!=null)
         {
             cur.moveToLast();

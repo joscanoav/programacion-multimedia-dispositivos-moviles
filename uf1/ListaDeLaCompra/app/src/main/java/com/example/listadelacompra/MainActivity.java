@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
                 contenidoItem = parent.getItemAtPosition(position).toString();
 
-                partes=contenidoItem.split(".-");
+                partes=contenidoItem.split(",-");
 
                 pasarPantalla= new Intent(MainActivity.this,ActualizarProductoActivity.class);
                 pasarPantalla.putExtra("ID",partes[0]);
