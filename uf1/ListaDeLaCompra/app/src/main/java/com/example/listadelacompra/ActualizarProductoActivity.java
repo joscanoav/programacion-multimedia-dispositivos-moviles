@@ -86,6 +86,17 @@ public class ActualizarProductoActivity extends AppCompatActivity {
                         caja1.setText("");
                         caja2.setText("");
                         caja3.setText("");
+
+                        if (gbd.actualizarProducto(Integer.parseInt(paquete1),contenidoCaja1,Float.parseFloat(contenidoCaja2),Integer.parseInt(contenidoCaja3)))
+                        {
+                            Toast.makeText(ActualizarProductoActivity.this, "Producto Actualizado correctamente", Toast.LENGTH_SHORT).show();
+                            pasarPantalla=new Intent(ActualizarProductoActivity.this,MainActivity.class);
+                            startActivity(pasarPantalla);
+                        }
+                        else
+                        {
+                            Toast.makeText(ActualizarProductoActivity.this, "No se ha actualizado el producto", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                 }

@@ -30,6 +30,16 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
+    public boolean actualizarProducto(int id, String nombre, float precio, int cantidad)
+    {
+        if (existeIdProducto(Integer.toString(id)))
+        {
+            SQLiteDatabase db= this.getWritableDatabase();
+            db.execSQL("UPDATE productos SET nombre='"+nombre+"',precio="+precio+",cantidad="+cantidad+" WHERE id="+id);
+        }
+        return true;
+    }
+
 
     public boolean borrarProducto(String id)
     {
@@ -46,7 +56,10 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         if (!existeProducto(nombre)){
             db.execSQL("INSERT INTO productos VALUES (null, '"+nombre+"',"+precio+","+cantidad+" )");
-            return true;
+            if (existeProducto(nombre))
+            {
+                return true;
+            }
         }
         return false;
     }
