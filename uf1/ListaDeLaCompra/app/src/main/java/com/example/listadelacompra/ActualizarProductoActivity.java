@@ -1,6 +1,8 @@
 package com.example.listadelacompra;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,6 +30,12 @@ public class ActualizarProductoActivity extends AppCompatActivity {
     protected GestorBaseDatos gbd;
 
     protected Producto pro;
+
+    protected Intent pasarPantalla;
+
+    protected String contenidoCaja1="";
+    protected String contenidoCaja2="";
+    protected String contenidoCaja3="";
 
 
 
@@ -61,6 +69,36 @@ public class ActualizarProductoActivity extends AppCompatActivity {
             caja1.setText(pro.getNombre());
             caja2.setText(""+pro.getPrecio());
             caja3.setText(""+pro.getCantidad());
+
+            boton1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    contenidoCaja1=caja1.getText().toString();
+                    contenidoCaja2=caja2.getText().toString();
+                    contenidoCaja3=caja3.getText().toString();
+
+                    if(contenidoCaja1.equalsIgnoreCase("")){
+                        Toast.makeText(ActualizarProductoActivity.this, "Debe rellenar la caja de texto", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        caja1.setText("");
+                        caja2.setText("");
+                        caja3.setText("");
+                    }
+
+                }
+            });
+
+            boton2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    pasarPantalla=new Intent(ActualizarProductoActivity.this,MainActivity.class);
+                    startActivity(pasarPantalla);
+
+                }
+            });
         }
         else
         {
