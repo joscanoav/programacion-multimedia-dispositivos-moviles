@@ -75,13 +75,21 @@ public class MainActivity extends AppCompatActivity {
                 else
                 {
                     caja1.setText("");
+                    caja2.setText("");
+                    caja3.setText("");
+
                     if  (gbd.insertarProducto(contenidoCaja1, Float.parseFloat(contenidoCaja2), Integer.parseInt(contenidoCaja3)))
                     {
                         Toast.makeText(MainActivity.this, "Producto insertado correctamente", Toast.LENGTH_SHORT).show();
+                        adaptador.clear();
+                        listaProductos = gbd.obtenerProducto();
+                        adaptador.addAll(listaProductos);
+                        adaptador.notifyDataSetChanged();
+
                     }
                     else
                     {
-                        Toast.makeText(MainActivity.this, "No se ha podido insertarel producto", Toast.LENGTH_SHORT).show();    
+                        Toast.makeText(MainActivity.this, "No se ha podido insertarel producto", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
