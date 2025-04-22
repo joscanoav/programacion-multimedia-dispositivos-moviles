@@ -29,6 +29,16 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
+
+    public boolean insertarProducto (String nombre, float precio, int cantidad)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        if (!existeProducto(nombre)){
+            db.execSQL("INSERT INTO productos VALUES (null, '"+nombre+"',"+precio+","+cantidad+" )");
+            return true;
+        }
+        return false;
+    }
         public ArrayList<String> obtenerProducto()
         {
             ArrayList<String> productos = new ArrayList<String>();
@@ -50,6 +60,22 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
             return productos;
 
         }
+
+    public boolean existeProducto(String nombre)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery("SELECT * FROM productos WHERE nombre= '"+nombre+"'", null);
+        if (cur!=null)
+        {
+            cur.moveToLast();
+            if (cur.getCount()>0) {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
 
     }
 

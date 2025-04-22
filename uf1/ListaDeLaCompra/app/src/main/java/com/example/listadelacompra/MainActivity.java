@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     protected ListView lista1;
 
     protected String contenidoCaja1="";
+    protected String contenidoCaja2="";
+    protected String contenidoCaja3="";
+
 
     protected GestorBaseDatos gbd;
 
@@ -63,12 +66,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 contenidoCaja1=caja1.getText().toString();
+                contenidoCaja2=caja2.getText().toString();
+                contenidoCaja3=caja3.getText().toString();
+
                 if(contenidoCaja1.equalsIgnoreCase("")){
                     Toast.makeText(MainActivity.this, "Debe rellenar la caja de texto", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     caja1.setText("");
+                    if  (gbd.insertarProducto(contenidoCaja1, Float.parseFloat(contenidoCaja2), Integer.parseInt(contenidoCaja3)))
+                    {
+                        Toast.makeText(MainActivity.this, "Producto insertado correctamente", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(MainActivity.this, "No se ha podido insertarel producto", Toast.LENGTH_SHORT).show();    
+                    }
                 }
             }
         });
