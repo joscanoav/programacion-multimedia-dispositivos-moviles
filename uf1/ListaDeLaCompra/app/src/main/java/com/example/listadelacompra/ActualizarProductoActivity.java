@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,9 @@ public class ActualizarProductoActivity extends AppCompatActivity {
 
     protected Button boton1;
     protected Button boton2;
+
+    protected String paquete1="";
+    protected Bundle extras;
 
 
 
@@ -41,6 +45,17 @@ public class ActualizarProductoActivity extends AppCompatActivity {
         caja3=(EditText) findViewById(R.id.caja3_actu);
         boton1=(Button) findViewById(R.id.boton1_actu);
         boton2=(Button) findViewById(R.id.boton2_actu);
+
+        extras= getIntent().getExtras();
+        if (extras!=null)
+        {
+            paquete1=extras.getString("ID");
+            Toast.makeText(this, "REcibdo paquete: " + paquete1, Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(this, "Paquete no recibido", Toast.LENGTH_SHORT).show();
+        }
 
     }
 }

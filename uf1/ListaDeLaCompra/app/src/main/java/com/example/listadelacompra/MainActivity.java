@@ -1,6 +1,7 @@
 package com.example.listadelacompra;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -44,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
     protected String[] partes;
 
+    protected Intent pasarPantalla;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +73,23 @@ public class MainActivity extends AppCompatActivity {
         adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,listaProductos);
         lista1.setAdapter(adaptador);
 
+        lista1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                contenidoItem = parent.getItemAtPosition(position).toString();
+
+                partes=contenidoItem.split(".-");
+
+                pasarPantalla= new Intent(MainActivity.this,ActualizarProductoActivity.class);
+                pasarPantalla.putExtra("ID",partes[0]);
+                startActivity(pasarPantalla);
+
+
+
+            }
+        });
+
         lista1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -91,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 else
                                 {
-                                    Toast.makeText(MainActivity.this, "El producto no se ha podido borrar", Toast.LENGTH_SHORT).show();    
+                                    Toast.makeText(MainActivity.this, "El producto no se ha podido borrar", Toast.LENGTH_SHORT).show();
                                 }
 
                             }
