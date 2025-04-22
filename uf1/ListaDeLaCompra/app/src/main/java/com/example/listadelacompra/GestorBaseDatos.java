@@ -40,6 +40,12 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
         return true;
     }
 
+    public void borrarTodosLosProducto()
+    {
+        SQLiteDatabase db= this.getWritableDatabase();
+        db.execSQL("DELETE FROM productos WHERE id>=0");
+    }
+
 
     public boolean borrarProducto(String id)
     {
@@ -101,10 +107,10 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
 
         }
 
-    public boolean existeProducto(String id)
+    public boolean existeProducto(String nombre)
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cur = db.rawQuery("SELECT * FROM productos WHERE id= '"+id, null);
+        Cursor cur = db.rawQuery("SELECT * FROM productos WHERE nombre='"+nombre+"'", null);
         if (cur!=null)
         {
             cur.moveToLast();
