@@ -50,6 +50,22 @@ public class GestorBaseDatos extends SQLiteOpenHelper {
         }
         return false;
     }
+
+    public Producto obtenerProducto(String id){
+        Producto pro;
+        if (existeIdProducto(id)) {
+
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor cur = db.rawQuery("SELECT * FROM productos WHERE id=" + id, null);
+
+            if (cur != null) {
+                cur.moveToFirst();
+                pro= new Producto(cur.getInt(0),cur.getString(1),cur.getFloat(2),cur.getInt(3));
+                return pro;
+            }
+        }
+        return null;
+    }
         public ArrayList<String> obtenerProducto()
         {
             ArrayList<String> productos = new ArrayList<String>();
