@@ -2,6 +2,7 @@ package com.example.listadelacompra;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
     protected ArrayAdapter<String> adaptador;
 
+    protected String contenidoItem="";
+
+    protected String[] partes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,19 @@ public class MainActivity extends AppCompatActivity {
         listaProductos = gbd.obtenerProducto();
         adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,listaProductos);
         lista1.setAdapter(adaptador);
+
+        lista1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                contenidoItem = parent.getItemAtPosition(position).toString();
+                Toast.makeText(MainActivity.this, "Contenido Item: " + contenidoItem, Toast.LENGTH_SHORT).show();
+                partes=contenidoItem.split(".-");
+                Toast.makeText(MainActivity.this, "Partes: " + partes[0]+ " - " + partes[1], Toast.LENGTH_SHORT).show();
+
+                return true;
+            }
+        });
 
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
