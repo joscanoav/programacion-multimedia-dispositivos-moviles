@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Notes IFP</string>
+    <string name="menu_crear">Create Note</string>
+    <string name="menu_opciones">Options</string>
+    <string name="btn_borrar_todo">Delete All</string>
+    <string name="btn_volver">Back</string>
+    <string name="toast_borrado_todo">All notes have been successfully deleted</string>
+    <string name="btn_borrar">Delete</string>
+    <string name="toast_nota_borrada">Note deleted successfully</string>
+    <string name="confirmar_borrar">Delete the note "%s"?</string>
+    <string name="si">Yes</string>
+    <string name="no">No</string>
+    <string name="idioma">Language</string>
+    <string name="espanol">Spanish</string>
+    <string name="catalan">Catalan</string>
+    <string name="ingles">English</string>
+    <string name="btn_crear_nota">Create Note</string>
+    <string name="hint_escribe_nota">Write your note here</string>
+</resources>

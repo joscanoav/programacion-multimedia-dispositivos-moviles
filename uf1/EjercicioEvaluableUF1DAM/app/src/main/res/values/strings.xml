@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Notitas IFP</string>
+    <string name="menu_crear">Crear Nota</string>
+    <string name="menu_opciones">Opciones</string>
+    <string name="btn_borrar_todo">Borrar todas</string>
+    <string name="btn_volver">Volver</string>
+    <string name="toast_borrado_todo">Se han borrado todas las notas correctamente</string>
+    <string name="btn_borrar">Borrar</string>
+    <string name="toast_nota_borrada">Nota borrada correctamente</string>
+    <string name="confirmar_borrar">¿Borrar la nota "%s"?</string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+    <string name="idioma">Idioma</string>
+    <string name="espanol">Español</string>
+    <string name="catalan">Català</string>
+    <string name="ingles">English</string>
+    <string name="btn_crear_nota">Crear Nota</string>
+    <string name="hint_escribe_nota">Escribe tu nota aquí</string>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_crear"
+        android:title="@string/menu_crear"
+        android:icon="@android:drawable/ic_input_add"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_idioma"
+        android:title="@string/idioma"
+        android:icon="@android:drawable/ic_lock_lock"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_espanol"
+                android:title="@string/espanol" />
+            <item
+                android:id="@+id/menu_catalan"
+                android:title="@string/catalan" />
+            <item
+                android:id="@+id/menu_ingles"
+                android:title="@string/ingles" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_opciones"
+        android:title="@string/menu_opciones"
+        android:icon="@android:drawable/ic_menu_preferences"
+        app:showAsAction="ifRoom" />
+</menu>

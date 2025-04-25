@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context=".CrearNotaActivity">
+
+    <EditText
+        android:id="@+id/etNota"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/hint_escribe_nota"
+        android:inputType="textMultiLine"
+        android:minLines="5"
+        android:maxLines="10"
+        android:gravity="top|start"
+        android:background="@android:drawable/edit_text"
+        android:padding="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnCrear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.4" />
+
+    <Button
+        android:id="@+id/btnCrear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_crear_nota"
+        app:layout_constraintTop_toBottomOf="@+id/etNota"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnVolver"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_volver"
+        app:layout_constraintTop_toBottomOf="@+id/btnCrear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
