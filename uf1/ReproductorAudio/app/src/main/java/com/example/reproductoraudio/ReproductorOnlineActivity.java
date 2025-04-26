@@ -54,23 +54,32 @@ public class ReproductorOnlineActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //play
 
-                try {
-                    mp= new MediaPlayer();
-                    mp.setDataSource(urlAudio);
-                    mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                    mp.prepareAsync();
-                    texto2.setText("Cargando ...");
-                    mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                        @Override
-                        public void onPrepared(MediaPlayer mp) {
-                            mp.start();
-                            texto2.setText("");
-                        }
-                    });
+                if (milisegundo>0) {
+
+                    mp.start();
+                } else {
+
+                    try {
+                        mp = new MediaPlayer();
+                        mp.setDataSource(urlAudio);
+                        mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                        mp.prepareAsync();
+                        texto2.setText("Cargando ...");
+                        mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                            @Override
+                            public void onPrepared(MediaPlayer mp) {
+                                mp.start();
+                                texto2.setText("");
+                                imabotonPause.setVisibility(View.VISIBLE);
+                                imabotonStop.setVisibility(View.VISIBLE);
+                            }
+                        });
 
 
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+
                 }
 
 
@@ -81,6 +90,12 @@ public class ReproductorOnlineActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //pause
+
+                milisegundo= mp.getCurrentPosition();
+                mp.pause();
+                imabotonPause.setVisibility(View.GONE);
+
+
 
 
 
