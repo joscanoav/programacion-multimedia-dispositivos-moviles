@@ -15,6 +15,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.File;
+
 public class ReproductorSistemaFicheros extends AppCompatActivity {
 
     protected TextView texto1;
@@ -28,7 +30,7 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
     protected MediaPlayer mp;
     protected float milisegundo=0;
 
-    protected String rutaCarpeta="";
+    protected String rutaCarpetaAudio="";
 
 
     @Override
@@ -51,9 +53,19 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
         imabotonPause.setVisibility(View.GONE);
         imabotonStop.setVisibility(View.GONE);
 
-        rutaCarpeta= Environment.getExternalStorageDirectory().getPath()+"Download/cancion1.mp3";
-        Toast.makeText(this, "La ruta del sistema de fichero es: " + rutaCarpeta, Toast.LENGTH_SHORT).show();
-        texto2.setText(rutaCarpeta);
+        rutaCarpetaAudio= Environment.getExternalStorageDirectory().getPath()+"/Download/cancion1.mp3";
+        File f = new File(rutaCarpetaAudio);
+        if (f.exists())
+        {
+            Toast.makeText(this, "El fichero mp3 Existe", Toast.LENGTH_SHORT).show();
+        }
+        
+        else{
+            Toast.makeText(this, "El fichero no existe", Toast.LENGTH_SHORT).show();
+        }
+        
+        Toast.makeText(this, "La ruta del sistema de fichero es: " + rutaCarpetaAudio, Toast.LENGTH_SHORT).show();
+        texto2.setText(rutaCarpetaAudio);
 
 
         imabotonPlay.setOnClickListener(new View.OnClickListener() {
