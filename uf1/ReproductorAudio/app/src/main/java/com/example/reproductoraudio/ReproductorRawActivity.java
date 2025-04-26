@@ -75,6 +75,9 @@ public class ReproductorRawActivity extends AppCompatActivity {
 
                 //stop
 
+                milisegundo=-1;
+                mp.stop();
+
             }
         });
 
