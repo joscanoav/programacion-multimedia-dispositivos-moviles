@@ -21,6 +21,7 @@ public class ReproductorRawActivity extends AppCompatActivity {
     protected ImageButton imabotonStop;
 
     protected MediaPlayer mp;
+    protected float milisegundo=0;
             ;
 
 
@@ -45,8 +46,14 @@ public class ReproductorRawActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //play
-                mp= MediaPlayer.create(ReproductorRawActivity.this,R.raw.cancion1);
+                if (milisegundo>0){
+                    mp.start();
+                }
+                else
+                {
+                mp= MediaPlayer.create(ReproductorRawActivity.this,R.raw.cancion2);
                 mp.start();
+                }
 
             }
         });
@@ -54,8 +61,10 @@ public class ReproductorRawActivity extends AppCompatActivity {
         imabotonPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //pause
+
+                    milisegundo = mp.getCurrentPosition();
+                    mp.pause();
 
             }
         });
