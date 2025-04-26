@@ -3,9 +3,11 @@ package com.example.reproductoraudio;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +27,8 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
 
     protected MediaPlayer mp;
     protected float milisegundo=0;
+
+    protected String rutaCarpeta="";
 
 
     @Override
@@ -46,6 +50,10 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
 
         imabotonPause.setVisibility(View.GONE);
         imabotonStop.setVisibility(View.GONE);
+
+        rutaCarpeta= Environment.getExternalStorageDirectory().getPath()+"Download/cancion1.mp3";
+        Toast.makeText(this, "La ruta del sistema de fichero es: " + rutaCarpeta, Toast.LENGTH_SHORT).show();
+        texto2.setText(rutaCarpeta);
 
 
         imabotonPlay.setOnClickListener(new View.OnClickListener() {
