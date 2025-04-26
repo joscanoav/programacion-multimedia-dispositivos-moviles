@@ -57,6 +57,22 @@ public class ReproductorOnlineActivity extends AppCompatActivity {
                 if (milisegundo>0) {
 
                     mp.start();
+                    imabotonPause.setVisibility(View.VISIBLE);
+                    imabotonStop.setVisibility(View.VISIBLE);
+
+                } else if (milisegundo<0){
+                    mp.prepareAsync();
+                    texto2.setText("Cargando ...");
+                    mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                        @Override
+                        public void onPrepared(MediaPlayer mp) {
+                            mp.start();
+                            texto2.setText("");
+                            imabotonPause.setVisibility(View.VISIBLE);
+                            imabotonStop.setVisibility(View.VISIBLE);
+                        }
+                    });
+
                 } else {
 
                     try {
@@ -95,11 +111,6 @@ public class ReproductorOnlineActivity extends AppCompatActivity {
                 mp.pause();
                 imabotonPause.setVisibility(View.GONE);
 
-
-
-
-
-
             }
         });
 
@@ -108,6 +119,11 @@ public class ReproductorOnlineActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //stop
+
+                milisegundo=-1;
+                mp.stop();
+                imabotonPause.setVisibility(View.GONE);
+                imabotonStop.setVisibility(View.GONE);
 
 
 
