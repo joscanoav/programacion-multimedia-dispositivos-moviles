@@ -42,6 +42,10 @@ public class ReproductorRawActivity extends AppCompatActivity {
         imabotonPause=(ImageButton) findViewById(R.id.imabotonPause_raw);
         imabotonStop=(ImageButton) findViewById(R.id.imabotonStop_raw);
 
+        imabotonPause.setVisibility(View.GONE);
+        imabotonStop.setVisibility(View.GONE);
+
+
         imabotonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +59,9 @@ public class ReproductorRawActivity extends AppCompatActivity {
                 mp.start();
                 }
 
+                imabotonPause.setVisibility(View.VISIBLE);
+                imabotonStop.setVisibility(View.VISIBLE);
+
             }
         });
 
@@ -65,6 +72,8 @@ public class ReproductorRawActivity extends AppCompatActivity {
 
                     milisegundo = mp.getCurrentPosition();
                     mp.pause();
+                imabotonPause.setVisibility(View.GONE);
+
 
             }
         });
@@ -77,6 +86,8 @@ public class ReproductorRawActivity extends AppCompatActivity {
 
                 milisegundo=-1;
                 mp.stop();
+                imabotonPause.setVisibility(View.GONE);
+                imabotonStop.setVisibility(View.GONE);
 
             }
         });
