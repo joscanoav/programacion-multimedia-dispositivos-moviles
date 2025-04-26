@@ -1,6 +1,8 @@
 package com.example.reproductoraudio;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -17,6 +19,8 @@ public class ReproductorRawActivity extends AppCompatActivity {
     protected ImageButton imabotonPause;
 
     protected ImageButton imabotonStop;
+
+    protected MediaPlayer mp;
             ;
 
 
@@ -36,6 +40,34 @@ public class ReproductorRawActivity extends AppCompatActivity {
         imabotonPlay=(ImageButton) findViewById(R.id.imabotonPlay_raw);
         imabotonPause=(ImageButton) findViewById(R.id.imabotonPause_raw);
         imabotonStop=(ImageButton) findViewById(R.id.imabotonStop_raw);
+
+        imabotonPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //play
+                mp= MediaPlayer.create(ReproductorRawActivity.this,R.raw.cancion1);
+                mp.start();
+
+            }
+        });
+
+        imabotonPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //pause
+
+            }
+        });
+
+        imabotonStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //stop
+
+            }
+        });
 
     }
 }
