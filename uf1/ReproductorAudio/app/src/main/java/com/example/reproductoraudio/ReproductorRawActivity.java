@@ -1,6 +1,8 @@
 package com.example.reproductoraudio;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +11,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class ReproductorRawActivity extends AppCompatActivity {
+
+    protected TextView texto1;
+    protected ImageButton imabotonPlay;
+    protected ImageButton imabotonPause;
+
+    protected ImageButton imabotonStop;
+            ;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +31,11 @@ public class ReproductorRawActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        texto1=(TextView) findViewById(R.id.text1_raw);
+        imabotonPlay=(ImageButton) findViewById(R.id.imabotonPlay_raw);
+        imabotonPause=(ImageButton) findViewById(R.id.imabotonPause_raw);
+        imabotonStop=(ImageButton) findViewById(R.id.imabotonStop_raw);
+
     }
 }
