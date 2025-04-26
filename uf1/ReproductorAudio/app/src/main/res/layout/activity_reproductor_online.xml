@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="376dp"
         android:layout_height="142dp"
         android:layout_marginStart="32dp"
@@ -58,5 +59,16 @@
             android:scaleType="fitXY"
             app:srcCompat="@drawable/stop" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/text2_online"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

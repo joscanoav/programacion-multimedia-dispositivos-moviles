@@ -1,5 +1,6 @@
 package com.example.reproductoraudio;
 
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,10 @@ public class ReproductorOnlineActivity extends AppCompatActivity {
     protected MediaPlayer mp;
     protected float milisegundo=0;
 
+    protected TextView texto2;
+
+    protected String urlAudio="https://cdn.pixabay.com/audio/2025/04/24/audio_31ffe2df4f.mp3";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +40,8 @@ public class ReproductorOnlineActivity extends AppCompatActivity {
         });
 
         texto1=(TextView) findViewById(R.id.text1_online);
-        imabotonPlay=(ImageButton) findViewById(R.id.imabotonPlay_online;
+        texto2=(TextView) findViewById(R.id.text2_online);
+        imabotonPlay=(ImageButton) findViewById(R.id.imabotonPlay_online);
         imabotonPause=(ImageButton) findViewById(R.id.imabotonPause_online);
         imabotonStop=(ImageButton) findViewById(R.id.imabotonStop_online);
 
@@ -47,6 +53,25 @@ public class ReproductorOnlineActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //play
+
+                try {
+                    mp= new MediaPlayer();
+                    mp.setDataSource(urlAudio);
+                    mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                    mp.prepareAsync();
+                    texto2.setText("Cargando ...");
+                    mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                        @Override
+                        public void onPrepared(MediaPlayer mp) {
+                            mp.start();
+                            texto2.setText("");
+                        }
+                    });
+
+
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
 
 
             }
