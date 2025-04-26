@@ -1,6 +1,11 @@
 package com.example.reproductoraudio;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +14,18 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class ReproductorSistemaFicheros extends AppCompatActivity {
+
+    protected TextView texto1;
+    protected TextView texto2;
+
+    protected ImageButton imabotonPlay;
+    protected ImageButton imabotonPause;
+
+    protected ImageButton imabotonStop;
+
+    protected MediaPlayer mp;
+    protected float milisegundo=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +37,52 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        texto1=(TextView) findViewById(R.id.text1_sistemafichero);
+        texto2=(TextView) findViewById(R.id.text2_sistemafichero);
+        imabotonPlay=(ImageButton) findViewById(R.id.imabotonPlay_sistemafichero);
+        imabotonPause=(ImageButton) findViewById(R.id.imabotonPause_sistemafichero);
+        imabotonStop=(ImageButton) findViewById(R.id.imabotonStop_sistemafichero);
+
+        imabotonPause.setVisibility(View.GONE);
+        imabotonStop.setVisibility(View.GONE);
+
+
+        imabotonPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //play
+
+
+                                imabotonPause.setVisibility(View.VISIBLE);
+                                imabotonStop.setVisibility(View.VISIBLE);
+
+                }
+
+        });
+
+        imabotonPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //pause
+
+                imabotonPause.setVisibility(View.GONE);
+
+            }
+        });
+
+        imabotonStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //stop
+
+                imabotonPause.setVisibility(View.GONE);
+                imabotonStop.setVisibility(View.GONE);
+
+
+            }
+        });
     }
+
 }
