@@ -94,27 +94,32 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
             public void onClick(View v) {
                 //play
 
-                try {
+                if (milisegundo > 0) {
+                    mp.start();
+                } else {
 
-                    mp= new MediaPlayer();
-                    mp.setDataSource(rutaCarpetaAudio);
-                    mp.prepare();
-                    mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                        @Override
-                        public void onPrepared(MediaPlayer mp) {
-                            mp.start();
-                        }
-                    });
+                    try {
+
+                        mp = new MediaPlayer();
+                        mp.setDataSource(rutaCarpetaAudio);
+                        mp.prepare();
+                        mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                            @Override
+                            public void onPrepared(MediaPlayer mp) {
+                                mp.start();
+                            }
+                        });
 
 
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                    imabotonPause.setVisibility(View.VISIBLE);
+                    imabotonStop.setVisibility(View.VISIBLE);
+
                 }
-
-                imabotonPause.setVisibility(View.VISIBLE);
-                imabotonStop.setVisibility(View.VISIBLE);
-
-                }
+            }
 
         });
 
@@ -123,6 +128,8 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
             public void onClick(View v) {
                 //pause
 
+                milisegundo = mp.getCurrentPosition();
+                mp.pause();
                 imabotonPause.setVisibility(View.GONE);
 
             }
