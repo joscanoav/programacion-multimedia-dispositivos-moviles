@@ -1,5 +1,7 @@
 package com.example.reproductoraudio;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -11,11 +13,14 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.io.File;
+import java.io.IOException;
 
 public class ReproductorSistemaFicheros extends AppCompatActivity {
 
@@ -31,6 +36,17 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
     protected float milisegundo=0;
 
     protected String rutaCarpetaAudio="";
+
+    public void checkPermission(String permission, int requestCode)
+    {
+        if (ContextCompat.checkSelfPermission(ReproductorSistemaFicheros.this,permission)== PackageManager.PERMISSION_DENIED)
+        {
+            ActivityCompat.requestPermissions(ReproductorSistemaFicheros.this,new String[]{permission},requestCode);
+        }
+        else {
+            Toast.makeText(this, "Tenemos ya permisos del usuario", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
     @Override
@@ -53,7 +69,7 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
         imabotonPause.setVisibility(View.GONE);
         imabotonStop.setVisibility(View.GONE);
 
-        rutaCarpetaAudio= Environment.getExternalStorageDirectory().getPath()+"/Download/cancion133.mp3";
+        rutaCarpetaAudio= Environment.getExternalStorageDirectory().getPath()+"/Download/cancion2.mp3";
         File f = new File(rutaCarpetaAudio);
         if (!f.exists())
         {
@@ -67,15 +83,32 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
         {
             texto2.setText(rutaCarpetaAudio);
         }
+        checkPermission(Manifest.permission.READ_MEDIA_AUDIO,100);
 
         imabotonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //play
 
+                try {
 
-                                imabotonPause.setVisibility(View.VISIBLE);
-                                imabotonStop.setVisibility(View.VISIBLE);
+                    mp= new MediaPlayer();
+                    mp.setDataSource(rutaCarpetaAudio);
+                    mp.prepare();
+                    mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                        @Override
+                        public void onPrepared(MediaPlayer mp) {
+                            mp.start();
+                        }
+                    });
+
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                imabotonPause.setVisibility(View.VISIBLE);
+                imabotonStop.setVisibility(View.VISIBLE);
 
                 }
 
