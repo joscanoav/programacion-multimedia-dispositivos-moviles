@@ -96,7 +96,21 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
 
                 if (milisegundo > 0) {
                     mp.start();
-                } else {
+                } else if (milisegundo < 0) {
+                    try {
+                        mp.prepare();
+                        mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                            @Override
+                            public void onPrepared(MediaPlayer mp) {
+                                mp.start();
+                            }
+                        });
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+                else {
 
                     try {
 
@@ -141,8 +155,11 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
 
                 //stop
 
-                imabotonPause.setVisibility(View.GONE);
-                imabotonStop.setVisibility(View.GONE);
+                milisegundo=-1;
+                mp.stop();
+
+                imabotonPause.setVisibility(View.VISIBLE);
+                imabotonStop.setVisibility(View.VISIBLE);
 
 
             }
