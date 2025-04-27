@@ -53,20 +53,20 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
         imabotonPause.setVisibility(View.GONE);
         imabotonStop.setVisibility(View.GONE);
 
-        rutaCarpetaAudio= Environment.getExternalStorageDirectory().getPath()+"/Download/cancion1.mp3";
+        rutaCarpetaAudio= Environment.getExternalStorageDirectory().getPath()+"/Download/cancion133.mp3";
         File f = new File(rutaCarpetaAudio);
-        if (f.exists())
+        if (!f.exists())
         {
-            Toast.makeText(this, "El fichero mp3 Existe", Toast.LENGTH_SHORT).show();
+            imabotonPlay.setVisibility(View.GONE);
+            imabotonPause.setVisibility(View.GONE);
+            imabotonStop.setVisibility(View.GONE);
+            Toast.makeText(this, "No se puede reproducir el fichero mp3", Toast.LENGTH_SHORT).show();
+            texto2.setText("No se puede reproducir el fichero mp3");
         }
-        
-        else{
-            Toast.makeText(this, "El fichero no existe", Toast.LENGTH_SHORT).show();
+        else
+        {
+            texto2.setText(rutaCarpetaAudio);
         }
-        
-        Toast.makeText(this, "La ruta del sistema de fichero es: " + rutaCarpetaAudio, Toast.LENGTH_SHORT).show();
-        texto2.setText(rutaCarpetaAudio);
-
 
         imabotonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
