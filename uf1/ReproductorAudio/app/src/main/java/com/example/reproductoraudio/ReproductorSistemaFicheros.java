@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -45,6 +46,8 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
         }
         else {
             Toast.makeText(this, "Tenemos ya permisos del usuario", Toast.LENGTH_SHORT).show();
+            imabotonPlay.setVisibility(View.VISIBLE);
+
         }
     }
 
@@ -66,6 +69,7 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
         imabotonPause=(ImageButton) findViewById(R.id.imabotonPause_sistemafichero);
         imabotonStop=(ImageButton) findViewById(R.id.imabotonStop_sistemafichero);
 
+        imabotonPlay.setVisibility(View.GONE);
         imabotonPause.setVisibility(View.GONE);
         imabotonStop.setVisibility(View.GONE);
 
@@ -136,6 +140,22 @@ public class ReproductorSistemaFicheros extends AppCompatActivity {
 
             }
         });
+
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults, int deviceId) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults, deviceId);
+
+        if( requestCode==100)
+        {
+            if (grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
+            {
+                imabotonPlay.setVisibility(View.VISIBLE);
+            }
+            else {
+                Toast.makeText(this, "No ha dado permisos", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
