@@ -32,32 +32,35 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        texto1 = (TextView) findViewById(R.id.texto1_main);
-        boton1 = (Button) findViewById(R.id.boton1_main);
+        texto1= (TextView) findViewById(R.id.texto1_main);
+        boton1= (Button) findViewById(R.id.boton1_main);
         boton2= (Button) findViewById(R.id.boton2_main);
-        boton3 = (Button) findViewById(R.id.boton3_main);
+        boton3= (Button) findViewById(R.id.boton3_main);
 
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // raw
-                pasarPantalla = new Intent(MainActivity.this, VideoRawActivity.class);
+                //Raw
+                pasarPantalla= new Intent(MainActivity.this, VideoRawActivity.class);
+                startActivity(pasarPantalla);
             }
         });
 
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // online
-                pasarPantalla = new Intent(MainActivity.this, VideoOnlineActivity.class);
-
+                //Online
+                pasarPantalla= new Intent(MainActivity.this, VideoOnlineActivity.class);
+                startActivity(pasarPantalla);
             }
         });
+
         boton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // sistema
-                pasarPantalla = new Intent(MainActivity.this, VideoSistemaActivity.class);
+                //Sistema de ficheros
+                pasarPantalla= new Intent(MainActivity.this, VideoSistemaActivity.class);
+                startActivity(pasarPantalla);
 
             }
         });
