@@ -1,6 +1,12 @@
 package com.example.reproductorvideosonline;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +15,14 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    protected TextView texto1;
+    protected EditText caja1;
+    protected Button boton1;
+
+    protected String contenidoCaja1="";
+
+    protected Intent pasarPantalla;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +34,32 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        texto1= (TextView) findViewById(R.id.texto1_main);
+        caja1=(EditText)  findViewById(R.id.caja1_main);
+        boton1=(Button) findViewById(R.id.boton1_main);
+
+        boton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                contenidoCaja1= caja1.getText().toString();
+                if (contenidoCaja1.equalsIgnoreCase(""))
+                {
+                    Toast.makeText(MainActivity.this, "Debe rellenar la caja de texto", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    pasarPantalla= new Intent(MainActivity.this, ReproductorVideoOnlineActivity.class);
+                    pasarPantalla.putExtra("URL", contenidoCaja1);
+                    startActivity(pasarPantalla);
+
+                }
+
+
+
+            }
+        });
+
     }
 }
