@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -80,9 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 Button btn = (Button) v;
                 int elegido = Integer.parseInt(btn.getText().toString());
                 if (elegido == resultadoCorrecto) {
-                    // acierto
+                    Toast.makeText(MainActivity.this,
+                                    "¡Correcto, en buena hora!",
+                                    Toast.LENGTH_SHORT)
+                            .show();
                     mpAcierto.start();
-                    // al terminar, reiniciar pregunta
                     mpAcierto.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
@@ -90,7 +93,10 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 } else {
-                    // error
+                    Toast.makeText(MainActivity.this,
+                                    "Incorrecto, vuelve a intentarlo!",
+                                    Toast.LENGTH_SHORT)
+                            .show();
                     mpError.start();
                 }
             }
