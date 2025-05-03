@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GestorMP3UF2</string>
+    <string name="playlist">Llista de reproducció</string>
+    <string name="crear_audio">Crear nou so</string>
+    <string name="hint_titulo">Títol</string>
+    <string name="hint_url">URL de l audio</string>
+    <string name="btn_add_new_audio">AFEGIR NOU ÀUDIO</string>
+    <string name="btn_back">TORNAR</string>
+    <string name="error_campos">Tots els camps són obligatoris</string>
+    <string name="audio_guardado">Àudio desat correctament</string>
+    <string name="reproductor_title">Reproductor d àudio</string>
+    <string name="error_reproducir">Impossible reproduir l audio</string>
+    <string name="menu_add">Afegir</string>
+    <string name="menu_exit">Sortir</string>
+</resources>

@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "UF2-Reto2-AprendeASumar"
 include(":app")
+include(":app")
+include(":app")

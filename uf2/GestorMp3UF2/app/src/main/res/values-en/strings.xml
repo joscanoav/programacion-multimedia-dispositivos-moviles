@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GestorMP3UF2</string>
+    <string name="playlist">Playlist</string>
+    <string name="crear_audio">Create new sound</string>
+    <string name="hint_titulo">Title</string>
+    <string name="hint_url">Audio URL</string>
+    <string name="btn_add_new_audio">ADD NEW AUDIO</string>
+    <string name="btn_back">BACK</string>
+    <string name="error_campos">All fields are required</string>
+    <string name="audio_guardado">Audio saved successfully</string>
+    <string name="reproductor_title">Audio Player</string>
+    <string name="error_reproducir">Unable to play audio</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_exit">Exit</string>
+</resources>
